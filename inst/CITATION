@@ -1,0 +1,13 @@
+citHeader("To cite TRESS in publications use:")
+
+citEntry(
+  entry    = "Article",
+  title    = "Detecting m6A methylation regions from Methylated RNA Immunoprecipitation Sequencing",
+  author   = "Z. Guo, A. M. Shafik, P. Jin, Z. Wu and H. Wu",
+  journal  = "Bioinformatics",
+  year     = "2021",
+  url      = "https://doi.org/10.1093/bioinformatics/btab181",
+  textVersion = paste(
+
+  )
+)
