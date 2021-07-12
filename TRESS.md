@@ -206,3 +206,5 @@ head(peaks)
 ```{r echo=FALSE, out.height = "80%", out.width = "80%", include=TRUE}
 knitr::include_graphics("./vignettes/ExamplePeaks.png")
 ```
+![Alt text]( https://github.com/ZhenxingGuo0015/TRESS/blob/main/vignettes/ExamplePeaks.png?raw=true "Optional Title").
+
