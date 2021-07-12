@@ -64,7 +64,6 @@ TRESS_peak(IP.file = IP.file,
            experiment_name = "example",
            filetype = "bam")
 peaks = read.table(paste0(OutDir, "/", "example_peaks.xls"), sep = "\t", header = TRUE)
-head(peaks)
 ```
 
 
