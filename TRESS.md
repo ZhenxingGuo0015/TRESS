@@ -168,24 +168,6 @@ In order to run this function, you need to have: 1) "onePeak": a pre-called peak
 We show some example plots here:
 
 ```{r, eval=FALSE, message= FALSE, warning= FALSE}
-# library(datasetTRES)
-# IP.file = c("cb_ip_rep1_chr19.bam", "cb_ip_rep2_chr19.bam")
-# Input.file = c("cb_input_rep1_chr19.bam", "cb_input_rep2_chr19.bam")
-# BamDir = file.path(system.file(package = "datasetTRES"), "extdata/")
-# annoDir = file.path(system.file(package = "datasetTRES"), "extdata/mm9_chr19_knownGene.sqlite")
-# OutDir = getwd() #YourOutputDir
-# TRESS_peak(IP.file = IP.file,
-#           Input.file = Input.file,
-#           Path_To_AnnoSqlite = annoDir,
-#           InputDir = BamDir,
-#           OutputDir = OutDir,
-#           experiment_name = "examplebyBam",
-#           filetype = "bam")
-# peaks = read.table(paste0(OutDir, "/", "examplebyBam_peaks.xls"), sep = "\t", header = TRUE)
-# load(paste0(OutDir, "/", "examplebyBam.rda"))
-# allBins = as.data.frame(bins$bins)
-# colnames(allBins)[1] = "chr"
-# allBins$strand = binStrand
 peaks = read.table(file.path(system.file(package = "TRESS"),
                              "extdata/examplebyBam_peaks.xls"),
                    sep = "\t", header = TRUE) 
@@ -195,11 +177,7 @@ allBins = as.data.frame(bins$bins)
 colnames(allBins)[1] = "chr"
 allBins$strand = binStrand
 head(peaks)
-# #for (i in 1:4) {
- #png(file = paste0("ExamplePeaks.png"), bg = "transparent")
-   ShowOnePeak(onePeak = peaks[1,], allBins = allBins, binCounts = allCounts)
- #dev.off()
-# #}
+ShowOnePeak(onePeak = peaks[1,], allBins = allBins, binCounts = allCounts)
 ```
 
 ![Alt text]( https://github.com/ZhenxingGuo0015/TRESS/blob/main/vignettes/ExamplePeaks.png?raw=true "Optional Title").
