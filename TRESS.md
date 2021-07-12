@@ -179,5 +179,4 @@ head(peaks)
 ShowOnePeak(onePeak = peaks[1,], allBins = allBins, binCounts = allCounts)
 ```
 
-<img src="https://github.com/ZhenxingGuo0015/TRESS/blob/main/vignettes/ExamplePeaks.png" width="700" height="700">
 
