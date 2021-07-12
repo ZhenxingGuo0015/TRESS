@@ -305,7 +305,7 @@ head(peaks)
 # #}
 ```
 
-<img src="ExamplePeaks.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" width="80%" height="80%" />
+<img src="https://github.com/ZhenxingGuo0015/TRESS/blob/main/vignettes/ExamplePeaks.png" title="Example Peak" alt="Example Peak" width="80%" height="80%" />
 
 
 
