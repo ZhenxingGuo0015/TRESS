@@ -202,6 +202,10 @@ head(peaks)
 # #}
 ```
 
+```
+![Alt text](/vignettes/ExamplePeaks.png?raw=true "Optional Title")
+```
+
 ```{r echo=FALSE, out.height = "80%", out.width = "80%", include=TRUE}
 knitr::include_graphics("./vignettes/ExamplePeaks.png")
 ```
