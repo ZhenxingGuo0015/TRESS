@@ -180,8 +180,5 @@ head(peaks)
 ShowOnePeak(onePeak = peaks[1,], allBins = allBins, binCounts = allCounts)
 ```
 
-![Alt text]( https://github.com/ZhenxingGuo0015/TRESS/blob/main/vignettes/ExamplePeaks.png?raw=true "Optional Title").
-
-
 <img src="https://github.com/ZhenxingGuo0015/TRESS/blob/main/vignettes/ExamplePeaks.png" width="800" height="800">
 
