@@ -1,16 +1,7 @@
----
-title: "Analyzing MeRIP-seq data with TRESS"
-author: "Zhenxing Guo"
-#date: "1/7/2020"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Analyzing MeRIP-seq data with TRESS}
-  %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
----
 
-    
 
+Analyzing MeRIP-seq data with TRESS
+=================
 
 
 ## Abstract
