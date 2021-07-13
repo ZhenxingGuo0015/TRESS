@@ -1,5 +1,5 @@
-\name{M6Apeak}
-\alias{M6Apeak}
+\name{M6Apeak.paramEsti}
+\alias{M6Apeak.paramEsti}
 \title{
 Parameter estimation in m6A peak calling problem.
 }
@@ -7,7 +7,7 @@ Parameter estimation in m6A peak calling problem.
 This is a wrap function to estimate all involved parameters in the proposed Bayesian hierarchical negative binomial model, which is the second step of our proposed peak calling method.
 }
 \usage{
-M6Apeak(mat, sf = NULL, cutoff = NULL, update = "Joint",
+M6Apeak.paramEsti(mat, sf = NULL, cutoff = NULL, update = "Joint",
 trans = NULL, optM = "L-BFGS-B", myfscale = -1e+06)
 }
 %- maybe also 'usage' for other objects documented here.
@@ -16,7 +16,8 @@ trans = NULL, optM = "L-BFGS-B", myfscale = -1e+06)
 A count matrix containing both IP and input samples. The order of columns are: input1, IP1, input2, IP2,...
 }
   \item{sf}{
-  A numerical vector to record the size factor for each sample. It can be mannually provided by the users or estimated automatically from the count data itself. Default is NULL.
+  A numerical vector to record the size factor for each sample.
+  It can be mannually provided by the users or estimated automatically from the count data itself. Default is NULL.
 }
   \item{cutoff}{
   The background methylation level, which is automatically estimated based on the background read counts in IP and input samples.
@@ -39,7 +40,8 @@ This function mainly runs three set of estimation procedures:
 1. Estimate methylation levels with the sub-function "EstiMu";
 2. Estimate dispersion parameters with the sub-function "EstiPhi";
 3. Estimate the variance of the estimated methylation levels with the sub-function "EstiVarofMu";
-4. Calculate test statistics and p-values with sub-function "getInfer". Also, it calculates a new score used for peak ranking.
+4. Calculate test statistics and p-values with sub-function "getInfer".
+Also, it calculates a new score used for peak ranking.
 }
 \value{
 \item{mu}{
@@ -52,7 +54,8 @@ Estimated variance of the estimates of methylation level.
 Shrinkage estimator for dispersion parameter phi_i.
 }
 \item{shrkTheta}{
-Shrinkage estimator for parameter theta_i if update == "Joint" or "Iterative". Otherwise it would be a plug-in moment estimator.
+Shrinkage estimator for parameter theta_i if update == "Joint" or "Iterative".
+Otherwise it would be a plug-in moment estimator.
 }
 
 \item{stats}{
@@ -62,7 +65,8 @@ Wald-test statisitcs.
 P-values derived from normal distribution based on the Wald-test statisitcs.
 }
 \item{p.adj}{Adjusted p-values using FDR}
-\item{rSocre}{A score used to ranke each region. The higher the score, the higher the rank would be.}
+\item{rSocre}{A score used to ranke each region.
+The higher the score, the higher the rank would be.}
 
 }
 
@@ -70,7 +74,8 @@ P-values derived from normal distribution based on the Wald-test statisitcs.
  ### A toy example using basal samples from mouse cortex
  data("Basal_regionlevel")
  ix = grepl("rep", colnames(Basal_regionlevel))
- res = M6Apeak(mat = as.matrix(Basal_regionlevel[, ix]), cutoff = 0.5)
+ res = M6Apeak.paramEsti(mat = as.matrix(Basal_regionlevel[, ix]),
+ cutoff = 0.5)
 }
 % R documentation directory.
 %\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")

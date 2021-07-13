@@ -47,21 +47,14 @@ peaks = read.table(file.path(system.file(package = "TRESS"),
                              "extdata/examplebyBam_peaks.xls"),
                    sep = "\t", header = TRUE)
 ### load annotation and bin counts
-load(file.path(system.file(package = "TRESS"), "extdata/examplebyBam.rda"))
+load(file.path(system.file(package = "TRESS"),
+               "extdata/examplebyBam.rda"))
  allBins = as.data.frame(bins$bins)
  colnames(allBins)[1] = "chr"
  allBins$strand = binStrand
  for (i in 1:4) {
-   ShowOnePeak(onePeak = peaks[i,], allBins = allBins, binCounts = allCounts)
+   ShowOnePeak(onePeak = peaks[i,],
+            allBins = allBins, binCounts = allCounts)
  }
 }
 
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory (show via RShowDoc("KEYWORDS")):
-% \keyword{ ~kwd1 }
-% \keyword{ ~kwd2 }
-% Use only one keyword per line.
-% For non-standard keywords, use \concept instead of \keyword:
-% \concept{ ~cpt1 }
-% \concept{ ~cpt2 }
-% Use only one concept per line.

@@ -1,15 +1,5 @@
-## should consider chr, but this should be okay most of the time
-#require(base)
-#require(stats)
-#require(matrixStats)
-findRegion <- function(chr, pos, sep=1000) {
-  pos.diff <- abs(c(as.integer(0), diff(pos)))
-  idx.jump <- which(pos.diff>sep)
-  regions <- rbind(c(1, idx.jump),
-                   c(idx.jump-1, length(pos)))
-  regions
-}
-
+# combine significant bins to form bumps given the location
+# and p-value of each bin
 findBumps <- function(chr, pos, strand, x, count,
                       use = "pval",
                       pval.cutoff,
@@ -18,9 +8,6 @@ findBumps <- function(chr, pos, strand, x, count,
                       sep = 2000, minlen=100,
                       minCount=3, dis.merge=100,
                       scorefun = mean, sort=TRUE) {
-  ### This function is used to combine significant bins to form bumps
-  ### given the location and p-value of each bin
-
   if(sep < dis.merge)
     sep = dis.merge + 1
 
@@ -42,13 +29,7 @@ findBumps <- function(chr, pos, strand, x, count,
                          x$lfc > lfc.cutoff)
     flag[is.na(flag)]=FALSE
   }
-
-  ## divide the whole genome into consecutive regions, which were sequenced
   regions <- findRegion(chr, pos, sep)
-  ## loop on regions: within each region,
-  ## combine significant bins to form a bump.
-  ## there may be multiple bumps (candidate peaks)
-  ## within one region
   initn <- 100000
   result <- data.frame(chr=rep("chr1",initn), start=rep(0, initn),
                        end=rep(0, initn), length=rep(0, initn),
@@ -58,7 +39,6 @@ findBumps <- function(chr, pos, strand, x, count,
   levels(result[,1]) <- unique(chr)
   result.idx <- 0
   Peakstrand <- NULL
- # for(i in 1:ncol(regions)) {
   for(i in seq_len(ncol(regions))) {
     idx <- regions[1,i]:regions[2, i]
     pos.region <- pos[idx]
@@ -67,10 +47,6 @@ findBumps <- function(chr, pos, strand, x, count,
     if(length(idx)<minCount) next
     nn <- length(idx)
     flag.region <- flag[idx]
-    ## get start/end position
-    # original code
-    # startidx <- which(flag.region[-nn]==0 & flag.region[-1]==1)+1
-    ### modified on Jan 29, to consider strand
     startidx <- which((flag.region[-nn]==0 & flag.region[-1]==1)|
                         (strand.region[-1]!=strand.region[-nn] &
                            flag.region[-1]==1)
@@ -82,17 +58,12 @@ findBumps <- function(chr, pos, strand, x, count,
     if(length(startidx)==0)
       next
 
-    ### original end idx
-    #endidx <- which(flag.region[-nn]==1 & flag.region[-1]==0)
-    #### modified on Jan 29, 2021 to consider strand
     endidx <- which((flag.region[-nn]==1 & flag.region[-1]==0) |
                       (strand.region[-nn]!= strand.region[-1] &
                          flag.region[-nn]==1))
-    ####
 
     if(flag.region[nn]==1)
       endidx <- c(endidx, nn)
-
 
 
 
@@ -114,7 +85,7 @@ findBumps <- function(chr, pos, strand, x, count,
       endidx <- endidx[idx.end]
     }
     nbump <- length(startidx)
-    ll <- pos.region[endidx] - pos.region[startidx] + 1 ### length of each bump
+    ll <- pos.region[endidx] - pos.region[startidx] + 1
     tmpn <- length(ll)
     # ## make bump scores
     x.thisregion <- x[idx, ]
@@ -122,7 +93,7 @@ findBumps <- function(chr, pos, strand, x, count,
     counts.thisregion <- rep(0, nbump)
     summit.thisregion <- rep(0, nbump)
     strand.thisregion <- rep(0, nbump)
-   # for(ibump in 1:nbump){
+    # for(ibump in 1:nbump){
     for(ibump in seq_len(nbump)){
       thisrange <- startidx[ibump]:endidx[ibump]
       scores.thisregion[ibump] <- scorefun(x.thisregion$pval[thisrange])
@@ -132,7 +103,7 @@ findBumps <- function(chr, pos, strand, x, count,
       strand.thisregion[ibump] <- defineStrand(thistrand)
       summit.thisregion[ibump] <- thispos[
         which.max(count.region[thisrange, 2])
-        ]+24
+      ]+24
     }
 
     #result[result.idx+(1:tmpn),] <-
@@ -155,31 +126,7 @@ findBumps <- function(chr, pos, strand, x, count,
   result$strand <- Peakstrand
   ## remove really short ones
   result <- result[result[,4]>minlen,]
-  ## sort according to score
-
   ii <- sort(result$score, decreasing = FALSE, index=TRUE)
   result <- result[ii$ix,]
   result
 }
-
-
-
-
-
-
-defineStrand <- function(strand){
-  if(all(strand== "+")){
-    peakStrand = "+"
-  }else if (all(strand == "-")) {
-    peakStrand = "-"
-  } else if (sum(strand == "*")>0 |
-             (sum(strand == "+") >0 &&
-              sum(strand == "-") >0)){
-    peakStrand = "*"
-  }else if(sum(strand == ".") >0){
-    peakStrand = "."
-  }
-  return(peakStrand)
-}
-
-
