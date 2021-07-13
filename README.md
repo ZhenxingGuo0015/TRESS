@@ -4,7 +4,7 @@ Analyzing MeRIP-seq data with TRESS
 =================
 
 
-**TRESS** is an R package desinged for the RNA methylation sequencing data analysis. 
+`TRESS` is an R package desinged for the RNA methylation sequencing data analysis. 
 
 The post-transcriptional epigenetic modiﬁcation on mRNA is an emerging ﬁeld to study the gene regulatory mechanism and their association with diseases. Recently developed high-throughput sequencing technology named Methylated RNA Immunoprecipitation Sequencing (MeRIP-seq) enables one to proﬁle mRNA epigenetic modiﬁcation transcriptome-wide. A basic task in the analysis of MeRIP-seq data is to identify transcriptome-wide m6A regions (namely "peak calling"). 
 
