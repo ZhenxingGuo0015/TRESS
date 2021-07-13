@@ -8,7 +8,7 @@ Analyzing MeRIP-seq data with TRESS
 
 The post-transcriptional epigenetic modiﬁcation on mRNA is an emerging ﬁeld to study the gene regulatory mechanism and their association with diseases. Recently developed high-throughput sequencing technology named Methylated RNA Immunoprecipitation Sequencing (MeRIP-seq) enables one to proﬁle mRNA epigenetic modiﬁcation transcriptome-wide. A basic task in the analysis of MeRIP-seq data is to identify transcriptome-wide m6A regions (namely "peak calling"). 
 
-Our package *TRESS* provides functions for peak calling of MeRIP-seq data, based on an empirical Bayesian hierarchical model. The method accounts for various sources of variations in the data through rigorous modeling, and achieves shrinkage estimation by borrowing informations from transcriptome-wide data to stabilize the parameter estimation.
+Our package TRESS provides functions for peak calling of MeRIP-seq data, based on an empirical Bayesian hierarchical model. The method accounts for various sources of variations in the data through rigorous modeling, and achieves shrinkage estimation by borrowing informations from transcriptome-wide data to stabilize the parameter estimation.
 
 Here, we briefly describe how to install TRESS package through GitHub. For detailed usage of TRESS, please refer to the vignette file.
 
@@ -31,7 +31,7 @@ browseVignettes("TRESS")
 ```
 
 ## Quick start
-Here we provide an quick example of how *TRESS* performs peak calling. In order to call peaks, *TRESS* requires paired input control and IP BAM files for each replicate: input1.bam \& ip1.bam, input2.bam \& ip2.bam, .... The BAM files contain mapped reads sequenced from respective samples and are the output of sequence alignment tools like Bowtie2. In addition to BAM files, TRESS also needs the genome annotation of reads saved in format of "*.sqlite". Then peak calling is conducted using the following code:
+Here we provide an quick example of how TRESS performs peak calling. In order to call peaks, TRESS requires paired input control and IP BAM files for each replicate: input1.bam \& ip1.bam, input2.bam \& ip2.bam, .... The BAM files contain mapped reads sequenced from respective samples and are the output of sequence alignment tools like Bowtie2. In addition to BAM files, TRESS also needs the genome annotation of reads saved in format of "*.sqlite". Then peak calling is conducted using the following code:
 
 
 
