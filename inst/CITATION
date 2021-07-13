@@ -7,7 +7,8 @@ citEntry(
   journal  = "Bioinformatics",
   year     = "2021",
   url      = "https://doi.org/10.1093/bioinformatics/btab181",
-  textVersion = paste(
-
+  textVersion = paste("Zhenxing Guo, Andrew M Shafik, Peng Jin, Zhijin Wu, Hao Wu (2021):",
+  "Detecting m6A methylation regions from Methylated RNA Immunoprecipitation Sequencing. ",
+  "Bioinformatics. doi:10.1093/bioinformatics/btab181"
   )
 )

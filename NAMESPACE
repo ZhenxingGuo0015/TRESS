@@ -20,7 +20,7 @@ export(
   TRESS_peak,
   M6Apeak.MultiRep.step1,
   M6Apeak.MultiRep.step2,
-  M6Apeak,
+  M6Apeak.paramEsti,
   M6Apeak.oneRep,
   ShowOnePeak
   )
