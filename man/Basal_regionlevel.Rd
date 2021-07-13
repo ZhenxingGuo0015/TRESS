@@ -3,8 +3,8 @@
 \docType{data}
 \name{Basal_regionlevel}
 \alias{Basal_regionlevel}
-\title{Transcriptome location, region-level read counts basal samples
-A dataframe containing the transcriptome location, read counts of 8011 regions from 14 basal samples,}
+\title{Transcriptome location,
+region-level read counts in basal samples.}
 \format{
 A dataframe with 8011 obs and 19 variables
 \describe{
@@ -13,20 +13,26 @@ A dataframe with 8011 obs and 19 variables
   \item{end}{End position}
   \item{strand}{Strand of each region}
   \item{summit}{The summit of each region}
-  \item{basal_Input_rep1}{Region-level read counts from basal_Input_rep1 sample}
-  \item{basal_IP_rep1}{Region-level read counts from basal_IP_rep1 sample}
-  \item{basal_Input_rep2}{Region-level read counts from basal_Input_rep2 sample}
-  \item{basal_IP_rep2}{Region-level read counts from basal_IP_rep2 sample}
+  \item{basal_Input_rep1}{Region-level read counts
+  from basal_Input_rep1 sample}
+  \item{basal_IP_rep1}{Region-level read counts
+  from basal_IP_rep1 sample}
+  \item{basal_Input_rep2}{Region-level read counts
+  from basal_Input_rep2 sample}
+  \item{basal_IP_rep2}{Region-level read counts
+  from basal_IP_rep2 sample}
   ...
-  \item{basal_Input_rep7}{Region-level read counts from basal_Input_rep7 sample}
-  \item{basal_Input_rep7}{Region-level read counts from basal_IP_rep7 sample}
-}
+  \item{basal_Input_rep7}{Region-level read counts
+  from basal_Input_rep7 sample}
+  \item{basal_Input_rep7}{Region-level read counts
+  from basal_IP_rep7 sample}
+ }
 }
 \usage{
 data(Basal_regionlevel)
 }
 \description{
-Transcriptome location, region-level read counts basal samples
-A dataframe containing the transcriptome location, read counts of 8011 regions from 14 basal samples,
+A dataframe containing the transcriptome location,
+read counts of 8011 regions from 14 basal samples.
 }
 \keyword{datasets}

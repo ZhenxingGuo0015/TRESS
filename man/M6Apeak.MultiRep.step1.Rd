@@ -9,26 +9,29 @@ perform and binomial test and loosely identify candidate regions
 using an ad hoc algorithm.
 }
 \usage{
-M6Apeak.MultiRep.step1(Counts, sf, bins, WhichThreshold = "fdr_lfc",
+M6Apeak.MultiRep.step1(Counts, sf, bins,
+WhichThreshold = "fdr_lfc",
 pval.cutoff = 1e-05, fdr.cutoff = 0.05,
 lfc.cutoff = 0.7, windlen = 5, lowcount = 30)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{Counts}{ A data matrix containing bin-level (50bp) read counts
-  in both IP and input samples. The number of column depends on the number of
+  \item{Counts}{ A data matrix containing
+  bin-level (50bp) read counts in both IP and input samples.
+  The number of column depends on the number of
   replicates, where the sample order is: input1, ip1, input2, ip2, ...
 }
   \item{sf}{ A vector specifying the size factor of each sample,
-  which is estimated using "Counts": colSums(Counts)/median(colSums(Counts)),
-  or provided by the user.
+  which is estimated using "Counts":
+  colSums(Counts)/median(colSums(Counts)), or provided by the user.
 }
   \item{bins}{
   A data frame containing the genomic position of each bin of fixed length.
 }
   \item{WhichThreshold}{
-  A character specifying a threshold for significant bins in bump finding using
-  an ad hoc algorithm. There are three options: "pval" (only use p-values),
+  A character specifying a threshold for significant bins
+  in bump finding using an ad hoc algorithm.
+  There are three options: "pval" (only use p-values),
   "fdr" (only use FDR), "lfc" (only use log fold change),
   "pval_lfc" (use both p-values and log fold changes)
   and "fdr_lfc" (use FDR and log fold changes). Default is "fdr_lfc".
@@ -84,7 +87,5 @@ Peak.candidates =
     bins = Basal_binlevel$bins,
     sf = Basal_binlevel$sf)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
 %\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
 %\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

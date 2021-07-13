@@ -5,7 +5,9 @@
 Visulization of a single peak along the genome.
 }
 \description{
-This function plots the estimated methylation level (as bars) of each bin within a peak for each replicate, and the corresponding normalized input read depth (grey curve).
+This function plots the estimated methylation level (as bars)
+of each bin within a peak for each replicate,
+and the corresponding normalized input read depth (grey curve).
 }
 \usage{
 ShowOnePeak(onePeak, allBins, binCounts, ext = 500, ylim = c(0, 1))
@@ -13,16 +15,22 @@ ShowOnePeak(onePeak, allBins, binCounts, ext = 500, ylim = c(0, 1))
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{onePeak}{
-A one-row dataframe containing the genomic position of a single peak: chr, start, end, strand.
+A one-row dataframe containing the genomic
+position of a single peak: chr, start, end, strand.
 }
   \item{allBins}{
-  A dataframe contaning the genomic position of all bins used to call peaks: chr, start, end, strand.
+  A dataframe contaning the genomic position of
+  all bins used to call peaks: chr, start, end, strand.
 }
   \item{binCounts}{
-  A dataframe contaning the read counts of all bins for each replicate. The sample order is: input1, ip1, input2, ip2, ...
+  A dataframe contaning the read counts of all bins
+  for each replicate. The sample order is:
+  input1, ip1, input2, ip2, ...
 }
   \item{ext}{
-  An integer indicating the length of base paris to extend the peak on both sides: (start - ext, end + ext). Default is 500.
+  An integer indicating the length of base paris
+  to extend the peak on both sides: (start - ext, end + ext).
+  Default is 500.
 }
   \item{ylim}{
   The range of y-axis to plot. Default is c(0, 1)
@@ -33,9 +41,6 @@ A one-row dataframe containing the genomic position of a single peak: chr, start
 It only generates a plot. No specific output.
 }
 
-
-
-%% ~Make other sections like Warning with \section{Warning}{....} ~
 
 \seealso{
 ShowOneDMR from "DSS" package.
@@ -53,8 +58,10 @@ load(file.path(system.file(package = "TRESS"),
  colnames(allBins)[1] = "chr"
  allBins$strand = binStrand
  for (i in 1:4) {
-   ShowOnePeak(onePeak = peaks[i,],
-            allBins = allBins, binCounts = allCounts)
+   ShowOnePeak(
+   onePeak = peaks[i,],
+   allBins = allBins, binCounts = allCounts
+   )
  }
 }
 
