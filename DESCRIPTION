@@ -1,0 +1,34 @@
+Package: TRESS
+Type: Package
+Title: An Empirical Bayesian Method for MeRIP-seq Peak Detection
+Version: 0.99.0
+Authors@R: c(person(given = "Zhenxing",
+                    family = "Guo",
+                    role = c("aut", "cre"),
+                    email = "zhenxing.guo@emory.edu"),
+            person(given = "Hao",
+                   family = "Wu",
+                   role = "ctb"))
+Description: This function implements a two-step procedure to conduct peak calling for MeRIP-seq data. In the first step, it loosely indentify candidate peak regions using an ad hoc procedure.In the second step, it ranks the candidate regions with more rigorous statistical modeling based on an empirical Bayesian hierarchical model.
+Imports: 
+    graphics,
+    utils,
+    S4Vectors,
+    GenomeInfoDb,
+    GenomicRanges,
+    BiocGenerics,
+    Matrix,
+    rtracklayer,
+    Biostrings,
+    IRanges,
+    DESeq2,
+    stats,
+    methods
+Depends: R (>= 4.0), matrixStats, Rsamtools, BSgenome, GenomicFeatures, AnnotationDbi
+biocViews: Sequencing, MethylSeq, RNASeq, PeakDetection, Bayesian, Microarray, Coverage, Alignment, SequenceMatching, QualityControl, DataImport
+License: CC0
+Encoding: UTF-8
+LazyData: false
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
+RoxygenNote: 7.1.1
