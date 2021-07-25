@@ -174,7 +174,7 @@ TRESS_peak <- function(IP.file, Input.file,
     }
 
   }
-  cat("###### Done!", sep = "\n")
+  cat("##### Done for peak calling!", sep = "\n")
   ###
   t.1 = Sys.time()
   t.1 - t.0
