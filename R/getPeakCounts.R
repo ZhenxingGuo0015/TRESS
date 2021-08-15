@@ -3,8 +3,10 @@ getPeakCounts <- function(peaks, allCounts, allBins){
   ### grasp reads counts for a list of peaks
   ### allCounts: counts for all sites across the whole genome
   ### all bins cut from the whole genome
+  # peak.GR = GRanges(Rle(peaks$chr),
+  #                   IRanges(peaks$start, peaks$end))
   peak.GR = GRanges(Rle(peaks$chr),
-                    IRanges(peaks$start, peaks$end))
+                    IRanges(peaks$start, peaks$end), Rle(peaks$strand))
   iii = findOverlaps(peak.GR, allBins)
   query = queryHits(iii)
   subject = subjectHits(iii)
