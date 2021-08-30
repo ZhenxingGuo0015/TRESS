@@ -5,17 +5,12 @@ importFrom("graphics", "axis", "box", "lines", "mtext", "par", "rect")
 importFrom("utils", "head", "write.table")
 import(GenomicFeatures)
 importFrom("S4Vectors", "subjectHits", "queryHits", "Rle")
-importFrom("BiocGenerics", "strand", "start", "end")
-importFrom("GenomeInfoDb", "seqnames", "seqinfo")
 importFrom("methods", "is")
 import(Matrix)
-import(BSgenome)
 import(AnnotationDbi)
 import(rtracklayer)
 import(matrixStats)
-import(Biostrings)
 importFrom("IRanges", "IRanges")
-import(DESeq2)
 export(
   TRESS_peak,
   M6Apeak.MultiRep.step1,

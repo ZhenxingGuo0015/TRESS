@@ -1,6 +1,6 @@
 Package: TRESS
 Type: Package
-Title: An Empirical Bayesian Method for MeRIP-seq Peak Detection
+Title: Toolbox for mRNA epigenetics sequencing analysis
 Version: 0.99.4
 Authors@R: c(person(given = "Zhenxing",
                     family = "Guo",
@@ -9,26 +9,22 @@ Authors@R: c(person(given = "Zhenxing",
             person(given = "Hao",
                    family = "Wu",
                    role = "ctb"))
-Description: This function implements a two-step procedure to conduct peak calling for MeRIP-seq data. In the first step, it loosely indentify candidate peak regions using an ad hoc procedure.In the second step, it ranks the candidate regions with more rigorous statistical modeling based on an empirical Bayesian hierarchical model.
+Description: This package is devoted to analyzing MeRIP-seq data. Current functionalities are mainly for detecting transcriptome wide m6A methylation regions
 Imports: 
     graphics,
     utils,
     S4Vectors,
-    GenomeInfoDb,
     GenomicRanges,
-    BiocGenerics,
     Matrix,
     rtracklayer,
-    Biostrings,
     IRanges,
-    DESeq2,
     stats,
     methods
-Depends: R (>= 4.0), matrixStats, Rsamtools, BSgenome, GenomicFeatures, AnnotationDbi
-biocViews: Sequencing, MethylSeq, RNASeq, PeakDetection, Bayesian, Microarray, Coverage, Alignment, SequenceMatching, QualityControl, DataImport
+Depends: R (>= 4.0), matrixStats, Rsamtools, GenomicFeatures, AnnotationDbi
+biocViews: Sequencing, MethylSeq, RNASeq, PeakDetection
 License: CC0
 Encoding: UTF-8
 LazyData: false
-Suggests: knitr, rmarkdown
+Suggests: knitr, rmarkdown, RMariaDB
 VignetteBuilder: knitr
 RoxygenNote: 7.1.1
