@@ -22,7 +22,7 @@ Imports:
     methods
 Depends: R (>= 4.0), matrixStats, Rsamtools, GenomicFeatures, AnnotationDbi
 biocViews: Sequencing, MethylSeq, RNASeq, PeakDetection
-License: GPL-2
+License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: false
 Suggests: knitr, rmarkdown, RMariaDB
