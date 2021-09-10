@@ -9,7 +9,7 @@ Authors@R: c(person(given = "Zhenxing",
             person(given = "Hao",
                    family = "Wu",
                    role = "ctb"))
-Description: This package is devoted to analyzing MeRIP-seq data. Current functionality is for detection of transcriptome-wide m6A methylation regions.
+Description: This package is devoted to analyzing MeRIP-seq data. Current functionality is for detection of transcriptome-wide m6A methylation regions, based on hierarchical negative binomial models.
 Imports: 
     graphics,
     utils,
