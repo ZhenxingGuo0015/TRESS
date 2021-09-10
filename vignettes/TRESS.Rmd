@@ -307,5 +307,8 @@ knitr::include_graphics("ExamplePeaks.png")
 ```
 
 
+# Session info {.unnumbered}
 
-
+```{r sessionInfo, echo=FALSE}
+sessionInfo()
+```
