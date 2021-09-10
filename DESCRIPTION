@@ -1,7 +1,7 @@
 Package: TRESS
 Type: Package
 Title: Toolbox for mRNA epigenetics sequencing analysis
-Version: 0.99.6
+Version: 0.99.7
 Authors@R: c(person(given = "Zhenxing",
                     family = "Guo",
                     role = c("aut", "cre"),
@@ -9,7 +9,7 @@ Authors@R: c(person(given = "Zhenxing",
             person(given = "Hao",
                    family = "Wu",
                    role = "ctb"))
-Description: This package is devoted to analyzing MeRIP-seq data. Current functionalities are mainly for detecting transcriptome wide m6A methylation regions
+Description: This package is devoted to analyzing MeRIP-seq data. Current functionality is for detection of transcriptome-wide m6A methylation regions.
 Imports: 
     graphics,
     utils,
@@ -22,7 +22,7 @@ Imports:
     methods
 Depends: R (>= 4.0), matrixStats, Rsamtools, GenomicFeatures, AnnotationDbi
 biocViews: Sequencing, MethylSeq, RNASeq, PeakDetection
-License: CC0
+License: GPL-2
 Encoding: UTF-8
 LazyData: false
 Suggests: knitr, rmarkdown, RMariaDB
