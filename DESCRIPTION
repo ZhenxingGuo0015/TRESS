@@ -1,7 +1,7 @@
 Package: TRESS
 Type: Package
 Title: Toolbox for mRNA epigenetics sequencing analysis
-Version: 0.99.12
+Version: 0.99.13
 Authors@R: c(person(given = "Zhenxing",
                     family = "Guo",
                     role = c("aut", "cre"),
@@ -23,9 +23,9 @@ Imports:
     IRanges,
     Rsamtools,
     AnnotationDbi
-Depends: R (>= 4.0), parallel, S4Vectors
+Depends: R (>= 4.1.0), parallel, S4Vectors
 biocViews: Epigenetics, RNASeq, PeakDetection
-License: CC0
+License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: false
 Suggests: knitr, rmarkdown,BiocStyle
