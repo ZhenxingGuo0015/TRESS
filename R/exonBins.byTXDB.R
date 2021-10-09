@@ -5,7 +5,7 @@ exonBins.byTXDB <- function(txdb,
   #### each gene will be divided into bins of length "binsize"
   ### when the annotation file are provided by
   ###    user instead of downloading from internet
-  tmp = suppressMessages(unique(genes(txdb)))
+  tmp = unique(genes(txdb))
   idx = (grepl("random", tmp@seqnames)|
            grepl("M", tmp@seqnames)|
            grepl("hap", tmp@seqnames)|
