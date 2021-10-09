@@ -1,0 +1,33 @@
+Package: TRESS
+Type: Package
+Title: Toolbox for mRNA epigenetics sequencing analysis
+Version: 0.99.1
+Authors@R: c(person(given = "Zhenxing",
+                    family = "Guo",
+                    role = c("aut", "cre"),
+                    email = "zhenxing.guo@emory.edu"),
+            person(given = "Hao",
+                   family = "Wu",
+                   role = "ctb"))
+Description: This package is devoted to analyzing MeRIP-seq data. Current functionality is for detection of transcriptome-wide m6A methylation regions. The method is based on hierarchical negative binomial models.
+Imports: 
+    utils,
+    rtracklayer,
+    Matrix,
+    matrixStats,
+    stats,
+    methods,
+    graphics,
+    GenomicRanges,
+    GenomicFeatures, 
+    IRanges,
+    Rsamtools,
+    AnnotationDbi
+Depends: R (>= 4.0), parallel, S4Vectors
+biocViews: Epigenetics, RNASeq, PeakDetection
+License: CC0
+Encoding: UTF-8
+LazyData: false
+Suggests: knitr, rmarkdown,BiocStyle
+VignetteBuilder: knitr
+RoxygenNote: 7.1.1
