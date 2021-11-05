@@ -17,10 +17,17 @@ export(
   CallPeaks.multiRep,
   CallPeaks.oneRep,
   CallPeaks.paramEsti,
+  meRatio,
   findBumps,
   ShowOnePeak,
   DivideBins,
   CallCandidates,
   EstiMu,
-  EstiPhi
+  EstiPhi,
+  filterRegions,
+  CallDMRs.paramEsti,
+  TRESS_DMRfit,
+  TRESS_DMRtest,
+  DMRInfer,
+  CoefName
   )
