@@ -9,7 +9,7 @@ Authors@R: c(person(given = "Zhenxing",
             person(given = "Hao",
                    family = "Wu",
                    role = "ctb"))
-Description: This package is devoted to analyzing MeRIP-seq data. Current functionality is for detection of transcriptome-wide m6A methylation regions. The method is based on hierarchical negative binomial models.
+Description: This package is devoted to analyzing MeRIP-seq data. Current functionalities include 1. detection of transcriptome wide m6A methylation regions 2. detection of transcriptome wide differential m6A methylation regions.
 Imports: 
     utils,
     rtracklayer,
@@ -24,7 +24,7 @@ Imports:
     Rsamtools,
     AnnotationDbi
 Depends: R (>= 4.1.0), parallel, S4Vectors
-biocViews: Epigenetics, RNASeq, PeakDetection
+biocViews: Epigenetics, RNASeq, PeakDetection, DifferentialMethylation
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: false
