@@ -22,8 +22,6 @@ export(
   ShowOnePeak,
   DivideBins,
   CallCandidates,
-  EstiMu,
-  EstiPhi,
   filterRegions,
   CallDMRs.paramEsti,
   TRESS_DMRfit,
