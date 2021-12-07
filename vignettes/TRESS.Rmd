@@ -95,6 +95,18 @@ library(devtools)
 install_github("https://github.com/ZhenxingGuo0015/TRESS", 
                build_vignettes = TRUE)
 ```
+
+From Bioconductor:
+```{r, eval = FALSE, warning=FALSE, message=FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+# The following initializes usage of Bioc devel
+BiocManager::install(version='devel')
+
+BiocManager::install("TRESS")
+```
+
 To view the package vignette in HTML format, run the following lines in R
 ```{r eval=FALSE,warning=FALSE,message=FALSE}
 library(TRESS)
