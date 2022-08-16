@@ -6,11 +6,23 @@ exonBins.byTXDB <- function(txdb,
   ### when the annotation file are provided by
   ###    user instead of downloading from internet
   tmp = unique(genes(txdb))
-  idx = (grepl("random", tmp@seqnames)|
-           grepl("M", tmp@seqnames)|
-           grepl("hap", tmp@seqnames)|
-           grepl("_", tmp@seqnames))
-  allgenes = tmp[!idx]
+  if( sum(grepl("chr",  unique(seqnames(tmp))))>0){
+    ### for human, mouse ...
+    idx = (grepl("random", tmp@seqnames)|
+             grepl("M", tmp@seqnames)|
+             grepl("hap", tmp@seqnames)|
+             grepl("_", tmp@seqnames))
+    allgenes = tmp[!idx]
+  }else{
+    ### for virus
+    allgenes = tmp
+  }
+  
+  # idx = (grepl("random", tmp@seqnames)|
+  #          grepl("M", tmp@seqnames)|
+  #          grepl("hap", tmp@seqnames)|
+  #          grepl("_", tmp@seqnames))
+  # allgenes = tmp[!idx]
   unique.gene = union(allgenes, allgenes) # combine overlapped gene
   wins = slidingWindows(unique.gene, width = binsize, step = binsize)
   allbins = unlist(wins)
