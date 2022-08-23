@@ -23,6 +23,10 @@ TRESS_DMRfit(IP.file, Input.file, Path_To_AnnoSqlite,
              InputDir, OutputDir = NA,
              experimentName = NA,
              binsize = 50,
+             WhichThreshold = "fdr",
+             pval.cutoff = 1e-5,
+             fdr.cutoff = 0.05,
+             lfc.cutoff = 0.4,
              filetype = "bam",
              IncludeIntron = FALSE,
              filterRegion = TRUE,
@@ -69,13 +73,38 @@ TRESS_DMRfit(IP.file, Input.file, Path_To_AnnoSqlite,
   bin the genome.
   Default value is 50.}
 
+\item{WhichThreshold}{
+  A character to specify which criterion to select significant bins
+  in order to obtain candidate DMRs from the first step.
+  It takes among "pval", "fdr", "lfc", "pval_lfc" and "fdr_lfc".
+  "pval": The inference is only based on P-values;
+  "fdr": The inference is only based on FDR;
+  "lfc": The inference is only based on log fold changes
+  between normalized IP and normalized input read counts;
+  "pval_lfc": The inference is based on both p-values and log fold changes;
+  "fdr_lfc": The inference is based on both FDR and log fold changes.
+  Default is "fdr_lfc".
+}
+  \item{pval.cutoff0}{
+  A numerical value to specify a p-value cutoff in the selection of significant bins to form candidate DMRs.
+  Default is 1e-5.
+  }
+  \item{fdr.cutoff0}{
+  A numerical value to specify a FDR cutoff in the selection of significant bins to form candidate DMRs. Default is 0.05.
+  }
+ \item{lfc.cutoff0}{
+  A numerical value to specify a cutoff of log fold change
+  between normalized IP and input counts in the selection of significant bins to form candidate DMRs.
+  Default is 0.4 for fold change of 1.5.
+  }
+
 \item{filetype}{
  A character to specify the format of input data.
  Possible choices are: "bam", "bed" and "GRanges".
  Default is "bam".
  }
 \item{IncludeIntron}{
-  A logical value indicating whether to include (TRUE)
+  A logical value indicating whether to include (TRUE) bins overlapping with 
   intronic regions or not (False). Default is FALSE.
   }
 
@@ -143,6 +172,7 @@ DMR.fit = TRESS_DMRfit(IP.file = IP.file,
                        Path_To_AnnoSqlite = Path_sqlit,
                        variable = design,
                        model = model,
+                       WhichThreshold = "fdr",
                        InputDir = InputDir,
                        OutputDir = OutputDir,
                        experimentName = "example"

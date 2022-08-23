@@ -6,8 +6,12 @@ TRESS_DMRfit <- function(IP.file, Input.file,
                          OutputDir = NA,
                          experimentName = NA,
                          binsize = 50,
-                         filetype = "bam",
+                         WhichThreshold = "fdr",
+                         pval.cutoff = 1e-5,
+                         fdr.cutoff = 0.05,
+                         lfc.cutoff = 0.4,
                          IncludeIntron = FALSE,
+                         filetype = "bam",
                          filterRegion = TRUE,
                          shrkPhi = TRUE,
                          addsuedo = FALSE
@@ -59,7 +63,12 @@ TRESS_DMRfit <- function(IP.file, Input.file,
   cat("##### Step 1: Call candidate DMRs...", sep = "\n")
   t1 = Sys.time()
   Candidates = CallCandidates(Counts = allBins$binCount,
-                              bins = allBins$bins)
+                              bins = allBins$bins,
+                              WhichThreshold = WhichThreshold,
+                              pval.cutoff = pval.cutoff,
+                              fdr.cutoff = fdr.cutoff,
+                              lfc.cutoff = lfc.cutoff,
+                              )
   Candidates$lg.fc = NULL   ## not necessary for DMR calling
   if(filterRegion){
     Candidates = filterRegions(Candidates)
