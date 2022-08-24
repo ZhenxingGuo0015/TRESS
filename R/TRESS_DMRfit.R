@@ -67,7 +67,7 @@ TRESS_DMRfit <- function(IP.file, Input.file,
                               WhichThreshold = WhichThreshold,
                               pval.cutoff = pval.cutoff,
                               fdr.cutoff = fdr.cutoff,
-                              lfc.cutoff = lfc.cutoff,
+                              lfc.cutoff = lfc.cutoff
                               )
   Candidates$lg.fc = NULL   ## not necessary for DMR calling
   if(filterRegion){
