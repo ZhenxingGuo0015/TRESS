@@ -7,6 +7,7 @@ filterRegions <- function(Candidates, quant = 0.25){
   idx = which(CV > Q.point)
   counts = Candidates$Counts[idx, ]
   regions = Candidates$Regions[idx, ]
+  rownames(regions) = rownames(counts) = 1:nrow(regions)
   Candidates = list(Regions = regions, Counts = counts,
                     sf = Candidates$sf)
   return(Candidates)
