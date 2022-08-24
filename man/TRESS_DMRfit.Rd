@@ -28,7 +28,7 @@ TRESS_DMRfit(IP.file, Input.file, Path_To_AnnoSqlite,
              fdr.cutoff = 0.05,
              lfc.cutoff = 0.4,
              filetype = "bam",
-             IncludeIntron = FALSE,
+             IncludeIntron = TRUE,
              filterRegion = TRUE,
              shrkPhi = TRUE,
              addsuedo = FALSE)
@@ -105,7 +105,7 @@ TRESS_DMRfit(IP.file, Input.file, Path_To_AnnoSqlite,
  }
 \item{IncludeIntron}{
   A logical value indicating whether to include (TRUE) bins overlapping with 
-  intronic regions or not (False). Default is FALSE.
+  intronic regions or not (False). Default is TRUE.
   }
 
 \item{filterRegion}{
@@ -172,7 +172,6 @@ DMR.fit = TRESS_DMRfit(IP.file = IP.file,
                        Path_To_AnnoSqlite = Path_sqlit,
                        variable = design,
                        model = model,
-                       WhichThreshold = "fdr",
                        InputDir = InputDir,
                        OutputDir = OutputDir,
                        experimentName = "example"
