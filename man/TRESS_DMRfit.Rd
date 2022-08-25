@@ -27,8 +27,8 @@ TRESS_DMRfit(IP.file, Input.file, Path_To_AnnoSqlite,
              pval.cutoff = 1e-5,
              fdr.cutoff = 0.05,
              lfc.cutoff = 0.4,
-             filetype = "bam",
              IncludeIntron = TRUE,
+             filetype = "bam",
              filterRegion = TRUE,
              shrkPhi = TRUE,
              addsuedo = FALSE)
@@ -83,16 +83,16 @@ TRESS_DMRfit(IP.file, Input.file, Path_To_AnnoSqlite,
   between normalized IP and normalized input read counts;
   "pval_lfc": The inference is based on both p-values and log fold changes;
   "fdr_lfc": The inference is based on both FDR and log fold changes.
-  Default is "fdr_lfc".
+  Default is "fdr".
 }
-  \item{pval.cutoff0}{
+  \item{pval.cutoff}{
   A numerical value to specify a p-value cutoff in the selection of significant bins to form candidate DMRs.
   Default is 1e-5.
   }
-  \item{fdr.cutoff0}{
+  \item{fdr.cutoff}{
   A numerical value to specify a FDR cutoff in the selection of significant bins to form candidate DMRs. Default is 0.05.
   }
- \item{lfc.cutoff0}{
+ \item{lfc.cutoff}{
   A numerical value to specify a cutoff of log fold change
   between normalized IP and input counts in the selection of significant bins to form candidate DMRs.
   Default is 0.4 for fold change of 1.5.
@@ -104,7 +104,7 @@ TRESS_DMRfit(IP.file, Input.file, Path_To_AnnoSqlite,
  Default is "bam".
  }
 \item{IncludeIntron}{
-  A logical value indicating whether to include (TRUE) bins overlapping with 
+  A logical value indicating whether to include (TRUE) bins overlapping with
   intronic regions or not (False). Default is TRUE.
   }
 
@@ -172,6 +172,7 @@ DMR.fit = TRESS_DMRfit(IP.file = IP.file,
                        Path_To_AnnoSqlite = Path_sqlit,
                        variable = design,
                        model = model,
+                       WhichThreshold = "fdr",
                        InputDir = InputDir,
                        OutputDir = OutputDir,
                        experimentName = "example"
