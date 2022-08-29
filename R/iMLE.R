@@ -14,7 +14,8 @@ iMLE <- function(i, X, Y, sx, sy, Ratio, D,
   ###
   R.ini = solve(t(D)%*%D)%*%t(D)%*%mylogit(Ratio[i, ])
   mu.ini = exp(D%*%R.ini)/(1+exp(D%*%R.ini))
-
+  mu.ini[mu.ini==1] = 0.99 # added on Aug 28, 2022
+  mu.ini[mu.ini==0] = 0.01
   if(!all(mu.ini <= 0.51)){
     R.old = R.ini; phi.old = phi.mom[i]; theta.old = theta.mom[i]
     ############################## first round of iteration
@@ -29,6 +30,9 @@ iMLE <- function(i, X, Y, sx, sy, Ratio, D,
       R.old = res$R
       loglik.old = res$loglik
       mu.old = exp(D%*%R.old)/(1+exp(D%*%R.old))
+      mu.old[mu.old==1] = 0.99 # added on Aug 28, 2022
+      mu.old[mu.old==0] = 0.01
+      
       ##### update Phi and theta
       tmp = JProfileMLE.phitheta(x = X[i, ], y = Y[i, ],
                                  mu0 = mu.old, sx = sx, sy = sy)
@@ -36,7 +40,7 @@ iMLE <- function(i, X, Y, sx, sy, Ratio, D,
     }
     ## re-iterate phi and theta
     phi.tmp = phi.old; theta.tmp = theta.old; obj.tmp = tmp$value
-    for (iter in seq_len(500)) {
+    for (iter in seq_len(200)) {
       tmp2 = profileMLE.phi(x = X[i, ], y = Y[i, ],
                             sx = sx, sy = sy,
                             mu0 = mu.old,
