@@ -165,7 +165,8 @@ Zhenxing Guo <zhenxing.guo@emory.edu>
 }
 
 \references{
-Guo, Z., Shafik, A. M., Jin, P., Wu, Z., and Wu, H. (2021) Detecting m6A methylation regions from Methylated RNA Immunoprecipitation Sequencing. Bioinformatics, 1-7. \url{https://doi-org.proxy.library.emory.edu/10.1093/bioinformatics/btab181}
+Guo, Z., Shafik, A. M., Jin, P., Wu, Z., and Wu, H. (2021) Detecting m6A methylation regions from Methylated RNA Immunoprecipitation Sequencing. Bioinformatics, 37 (18), 2818–2824. \url{
+https://academic.oup.com/bioinformatics/article/37/18/2818/6173980?login=true}
 }
 
 

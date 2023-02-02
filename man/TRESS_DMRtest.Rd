@@ -54,9 +54,10 @@ Zhenxing Guo <zhenxing.guo@emory.edu>
 }
 
 \references{
-Zhenxing Guo, Andrew M. Shafik, Peng Jin, Hao Wu. "Differential
-RNA Methylation Analysis for MeRIP-seq Data under General
-Experimental Design."
+Zhenxing Guo, Andrew M. Shafik, Peng Jin, Hao Wu. (2022)
+Differential RNA Methylation Analysis for MeRIP-seq Data
+under General Experimental Design. Bioinformatics, 38 (20), 4705-4712. \url{
+https://academic.oup.com/bioinformatics/article/38/20/4705/6692302?login=true}
 }
 
 \examples{
