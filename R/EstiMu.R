@@ -22,6 +22,8 @@ EstiMu <- function(counts, sf){
   #### version 2
   mu = rowMeans(lambda_y.hat)/rowMeans(
     lambda_x.hat + lambda_y.hat)
+  mu[mu ==0] = 0.01
+  mu[mu==1] = 0.99
 
   return(mu)
 }
