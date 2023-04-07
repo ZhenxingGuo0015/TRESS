@@ -1,0 +1,31 @@
+import(stats)
+import(GenomicRanges)
+import(Rsamtools)
+import(GenomicFeatures)
+importFrom("IRanges", "IRanges")
+importFrom("graphics", "axis", "box", "lines", "mtext", "par", "rect")
+importFrom("utils", "head", "write.table")
+importFrom("S4Vectors", "subjectHits", "queryHits", "Rle")
+importFrom("methods", "is")
+import(AnnotationDbi)
+import(Matrix)
+import(rtracklayer)
+import(matrixStats)
+import(parallel)
+export(
+  TRESS_peak,
+  CallPeaks.multiRep,
+  CallPeaks.oneRep,
+  CallPeaks.paramEsti,
+  meRatio,
+  findBumps,
+  ShowOnePeak,
+  DivideBins,
+  CallCandidates,
+  filterRegions,
+  CallDMRs.paramEsti,
+  TRESS_DMRfit,
+  TRESS_DMRtest,
+  DMRInfer,
+  CoefName
+  )
