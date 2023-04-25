@@ -1,7 +1,7 @@
 Package: TRESS
 Type: Package
 Title: Toolbox for mRNA epigenetics sequencing analysis
-Version: 1.6.0
+Version: 1.7.0
 Authors@R: c(person(given = "Zhenxing",
                     family = "Guo",
                     role = c("aut", "cre"),
