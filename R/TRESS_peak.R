@@ -1,6 +1,7 @@
 ## main function of peak calling in TRESS
 TRESS_peak <- function(IP.file, Input.file,
                        Path_To_AnnoSqlite,
+                       Path_To_OrgdbSqlite = NA,
                        binsize = 50,
                        WhichThreshold = "fdr_lfc",
                        pval.cutoff0 = 1e-5,
@@ -70,7 +71,6 @@ TRESS_peak <- function(IP.file, Input.file,
     cat("Time used to obtain candidates is: ", t2 - t1, sep = "\n")
     cat("The number of candidates is: ", nrow(Peak.candidates$Regions),
         sep = "\n")
-
     if(nrow(Peak.candidates$Counts) >= 2){
       ### 2.2 peak calling from candidates
       cat("###### Step 2: Peak calling from candidates...",
@@ -87,6 +87,7 @@ TRESS_peak <- function(IP.file, Input.file,
         fdr.cutoff = fdr.cutoff0,
         lfc.cutoff = lfc.cutoff0
         )
+
       t2 = Sys.time()
       t2 - t1
       cat("Time used in Step 2 is: ", t2 - t1, sep = "\n")
@@ -112,6 +113,18 @@ TRESS_peak <- function(IP.file, Input.file,
     }
 
   }
+
+  #### added on August 18, 2023
+  # add gene name to each region
+  if(nrow(Peaks) > 1 ){
+    if(!is.na(Path_To_OrgdbSqlite)){
+      GeneName = getGeneID(RegionList = Peaks,
+                           Path_To_AnnoSqlite = Path_To_AnnoSqlite,
+                           Path_To_OrgdbSqlite = Path_To_OrgdbSqlite)$gene_Symbol
+      Peaks$gene_Symbol = GeneName
+    }
+  }
+  ####
 
   if(!is.na(OutputDir)) {
     ### save results

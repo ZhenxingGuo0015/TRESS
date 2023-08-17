@@ -1,5 +1,6 @@
 TRESS_DMRfit <- function(IP.file, Input.file,
                          Path_To_AnnoSqlite,
+                         Path_To_OrgdbSqlite = NA,
                          variable = NULL,
                          model = NULL,
                          InputDir,
@@ -73,6 +74,17 @@ TRESS_DMRfit <- function(IP.file, Input.file,
   if(filterRegion){
     Candidates = filterRegions(Candidates)
   }
+
+  ######### added on August 17, 2023
+  # add gene name to each region
+  if(!is.na(Path_To_OrgdbSqlite)){
+    Regions.withGeneName = getGeneID(RegionList = Candidates$Regions,
+                                     Path_To_AnnoSqlite = Path_To_AnnoSqlite,
+                                     Path_To_OrgdbSqlite = Path_To_OrgdbSqlite)
+    Candidates$Regions = Regions.withGeneName
+  }
+  #########
+
   t2 = Sys.time()
   cat("The number of candidates is: ",nrow(Candidates$Regions),
       sep = "\n")
@@ -92,11 +104,16 @@ TRESS_DMRfit <- function(IP.file, Input.file,
                               model = model,
                               shrkPhi = shrkPhi,
                               addsuedo = addsuedo)
+  #### Added on August 16, 2023
+  DMRfit$Candidates = Candidates
+  ####
+
   t2 = Sys.time()
   cat("Time used in Step 2 is: ", t2 - t1, sep = "\n")
 
   t.2 = Sys.time()
   cat("##### Done! Total time used is : ",
       t.2 - t.1, sep = "\n")
+
   return(DMRfit)
 }

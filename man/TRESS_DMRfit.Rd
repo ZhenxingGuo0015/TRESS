@@ -19,6 +19,7 @@ following three steps:
 }
 \usage{
 TRESS_DMRfit(IP.file, Input.file, Path_To_AnnoSqlite,
+             Path_To_OrgdbSqlite = NA,
              variable = NULL, model = NULL,
              InputDir, OutputDir = NA,
              experimentName = NA,
@@ -47,6 +48,11 @@ TRESS_DMRfit(IP.file, Input.file, Path_To_AnnoSqlite,
   A character to specify the path to a "*.sqlite" file used
   for genome annotation.
   }
+\item{Path_To_OrgdbSqlite}{
+ A character to specify the path to a "*.sqlite" file containg mappings
+ between different version of gene names. If specified, gene SYMBOL for
+ each DMR will be provided in the results. Default is NA.
+}
 \item{variable}{
   A dataframe containing condition information of all samples.
   Default is NULL.
@@ -136,16 +142,22 @@ This function generates three sets of results: "allBins",
 "Candidates" and "DMRfit" returned respectively by function \code{\link{DivideBins}}, \code{\link{CallCandidates}}
 and \code{\link{CallDMRs.paramEsti}}.
 If "OutputDir" is not specified, only "DMRfit" will be returned.
-If "OutputDir" is specified, in addition to returning "DMRfit",
-"allBins" and "Candidates" will also be saved
-under the provided output directory.
+If "OutputDir" is specified, "allBins" and "Candidates" will also be saved under the provided output directory. Detailed structure of  "allBins" and "Candidates" can be found in the manual of \code{\link{DivideBins}} and \code{\link{CallCandidates}}.
 
-Detailed structure of "DMRfit", "Candidates" and "allBins"
-can be found in the manual of respective functions.
+In "DMRfit", the elements are
+\item{Candidates}{ A list contains:
+A data frame containng genomic coordinate
+  for each candidate region, and a data matrix containing read counts of
+  all samples for each candidate region.
+}
+\item{Ratio}{A dataframe containing the IP/input ratio from all samples.}
+\item{loglik}{A numerical vector containing the log-likelihood of all DMRs.}
+\item{Coef}{A matrix containing estimates of coefficients in the design.}
+\item{Cov}{A list of variance-covariance matrix estimates for all DMRs.}
 }
 
 \author{
-Zhenxing Guo <zhenxing.guo@emory.edu>
+Zhenxing Guo <guozhenxing@cuhk.edu.cn>
 }
 
 \references{

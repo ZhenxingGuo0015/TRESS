@@ -20,6 +20,7 @@ to detect m6A methylation regions.
 }
 \usage{
 TRESS_peak(IP.file, Input.file, Path_To_AnnoSqlite,
+           Path_To_OrgdbSqlite = NA,
            binsize = 50,
            WhichThreshold = "fdr_lfc",
            pval.cutoff0 = 1e-5,
@@ -46,6 +47,11 @@ TRESS_peak(IP.file, Input.file, Path_To_AnnoSqlite,
 \item{Path_To_AnnoSqlite}{
 A character to specify the path to a "*.sqlite" file used
 for genome annotation.
+}
+
+\item{Path_To_OrgdbSqlite}{
+ A character to specify the path to the "*.sqlite" file containg mappings
+ between different version of gene names. If specified, gene SYMBOL will be provided for all peaks. Default is NA.
 }
 
 \item{binsize}{
@@ -140,6 +146,7 @@ information of all peaks. The columns of the peak excel files are:
 \item{end}{The end of genomic position of each peak.}
 \item{strand}{The strand of each peak.}
 \item{summit}{The summit of each peak.}
+\item{gene_Symbol}{The gene symbol of each peak.}
 \item{lg.fc}{Log fold change between normalized IP
 and normalized input read counts for each peak.}
 \item{pvals}{P-values calculated based on the Wald-test.}
@@ -161,7 +168,7 @@ Note, there are additional columns regardless of the number of replicates. Those
 }
 
 \author{
-Zhenxing Guo <zhenxing.guo@emory.edu>
+Zhenxing Guo <guozhenxing@cuhk.edu.cn>
 }
 
 \references{

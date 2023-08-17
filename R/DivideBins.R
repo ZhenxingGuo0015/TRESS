@@ -51,8 +51,7 @@ DivideBins <- function(IP.file, Input.file,
   if (!is.na(OutputDir)) {
     save(bins, allCounts,
          file = paste0(OutputDir, "/",
-                       experimentName, "_BinsAndCounts.rda")
-         )
+                       experimentName,"_BinsAndCounts.rda"))
     }
   return(res = list(bins = allBins, binCount = allCounts))
 }

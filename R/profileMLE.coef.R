@@ -8,7 +8,7 @@ profileMLE.coef <- function(x, y, sx, sy, D, R.ini,
                           t = log(theta0))
 
   for (iter in seq_len(max.iter)) {
-    cat("Iteration: ", iter, "log.lik: ", loglik.old, "\n")
+   # cat("Iteration: ", iter, "log.lik: ", loglik.old, "\n")
     Grad.old = dL.R(x = x, y = y, sx = sx, sy = sy, D = D,
                     R = R.old, phi = phi0,
                     theta = theta0)

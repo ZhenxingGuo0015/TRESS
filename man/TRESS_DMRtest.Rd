@@ -39,18 +39,21 @@ if the \eqn{C}{C} is a matrix, then TRESS conducts F-test.
 \value{
 This function returns a dataframe containing the testing
 results for specified contrast. The columns are
+\item{chr}{ Chromosome number of each region}
+\item{start}{Start position of each region}
+\item{end}{End position of each region}
+\item{strand}{Strand information of each region}
+\item{gene_Symbol}{If "Path_To_OrgdbSqlite" is specified, this column contains the gene symbol of each region}
 \item{baseMean}{Averaged methylation level cross all samples.}
-\item{logOR}{Estimated value of contrast: \eqn{C^TR_i}{C^TR_i}. Only
-available if constrast is a vector.}
-\item{lorSE}{Standard error of \eqn{C^TR_i}{C^TR_i}. Only
-available if constrast is a vector.}
-\item{stat}{Test statistics.}
+\item{logOR}{Estimated value of contrast: \eqn{C^TR_i}{C^TR_i}. For two-group comparison, it represents the log odds ratio of methylation probabilities.}
+\item{lorSE}{Standard error of log odds ratio.}
+\item{stat}{Wald statistics.}
 \item{pvalue}{P-values from statistical tests.}
 \item{padj}{Benjamini-Hochberg procedure adjusted p-values.}
 }
 
 \author{
-Zhenxing Guo <zhenxing.guo@emory.edu>
+Zhenxing Guo <guozhenxing@cuhk.edu.cn>
 }
 
 \references{
@@ -71,6 +74,7 @@ DMR.fit = CallDMRs.paramEsti(
     variable = variable,
     model = model
     )
+DMR.fit$Candidates = DMR_M3vsWT
 DMR.test = TRESS_DMRtest(DMR = DMR.fit, contrast = c(0, 1))
 head(DMR.test, 3)
 head(DMR_M3vsWT$Regions[which(DMR.test$padj < 0.05), ], 3)

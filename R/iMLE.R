@@ -32,7 +32,7 @@ iMLE <- function(i, X, Y, sx, sy, Ratio, D,
       mu.old = exp(D%*%R.old)/(1+exp(D%*%R.old))
       mu.old[mu.old==1] = 0.99 # added on Aug 28, 2022
       mu.old[mu.old==0] = 0.01
-      
+
       ##### update Phi and theta
       tmp = JProfileMLE.phitheta(x = X[i, ], y = Y[i, ],
                                  mu0 = mu.old, sx = sx, sy = sy)
@@ -46,7 +46,7 @@ iMLE <- function(i, X, Y, sx, sy, Ratio, D,
                             mu0 = mu.old,
                             theta0 = theta.tmp,
                             maximum = TRUE)
-      cat(iter, tmp2$objective, sep = "\n")
+     # cat(iter, tmp2$objective, sep = "\n")
       if(abs(tmp2$objective - obj.tmp) > eps){
         phi.tmp = tmp2$maximum
         tmp3 = profileMLE.theta(x = X[i, ], y = Y[i, ],

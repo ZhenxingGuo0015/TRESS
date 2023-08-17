@@ -136,8 +136,7 @@ CallCandidates <- function(Counts, bins,
       Candidates = list(Regions = tmp1, Counts = tmp2,
                         lg.fc = tmp3, sf = sf)
     }
-    # cat("The number of Candidates from all samples are: ",
-    #     nrow(Candidates$Regions), sep = "\n")
+   
   }else{
     Candidates = list()
     cat("No candidates from any samples!", sep = "\n")

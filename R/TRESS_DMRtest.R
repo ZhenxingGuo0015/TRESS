@@ -10,9 +10,31 @@ TRESS_DMRtest <- function(DMR, contrast, nullModel = "standN"){
                     Contrast = contrast)
   }
   baseMean = rowMeans(DMR$Ratio, na.rm = TRUE)
-  res = data.frame(baseMean = baseMean, res)
+
+  ########## editted on August 16, 2023
+  #res = data.frame(baseMean = baseMean, res)
+
+  if("gene_Symbol" %in% colnames(DMR$Candidates$Regions)){
+    res = data.frame(chr = DMR$Candidates$Regions$chr,
+                     start = DMR$Candidates$Regions$start,
+                     end = DMR$Candidates$Regions$end,
+                     strand = DMR$Candidates$Regions$strand,
+                     gene_Symbol = DMR$Candidates$Regions$gene_Symbol,
+                     baseMean = baseMean,
+                     res)
+  }else{
+    res = data.frame(chr = DMR$Candidates$Regions$chr,
+                     start = DMR$Candidates$Regions$start,
+                     end = DMR$Candidates$Regions$end,
+                     strand = DMR$Candidates$Regions$strand,
+                     baseMean = baseMean,
+                     res)
+  }
+  ##########
+
   return(res)
 }
+
 
 
 

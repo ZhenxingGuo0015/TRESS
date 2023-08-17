@@ -11,22 +11,27 @@ MLE.parallel <- function(mat, sf, D){
   Y = mat[, seq(2, ncol(mat), 2)]
   sy = sf[seq(2, ncol(mat), 2)]
   Ratio = meRatio(counts = mat, sf = sf)
+  #######################################
+
   ###### estimate mu, phi by the MLE either under Beta or NB model
-  # res.MLE = mclapply(1:nrow(Ratio), iMLE,
-  #                    X, Y, sx, sy,
-  #                    Ratio, D, iniby,
-  #                    mc.set.seed = TRUE,
-  #                    mc.cores = 2 #max(1, detectCores() - 1)
-  #                    )
-  res.MLE = mclapply(seq_len(nrow(Ratio)), iMLE,
-                     X, Y, sx, sy,
-                     Ratio, D,
-                     mc.set.seed = TRUE,
-                     mc.cores = 2
-                     )
+  if(.Platform$OS.type == "windows" | Sys.info()['sysname'] == "Windows"){
+    ## Windows, use single core
+    res.MLE = matrix(NA, nrow = nrow(X), ncol = 2*(ncol(D)+2) + 1)
+    for (i in 1:nrow(X)) {
+      res.MLE[i, ] = iMLE(i, X, Y, sx, sy, Ratio, D,
+                          max.iter = 10,  eps = 1e-5)
+    }
+  }else{
+    ncores = 2#max(detectCores() - 3, 2)
+    res.MLE = mclapply(seq_len(nrow(Ratio)), iMLE,
+                       X, Y, sx, sy,
+                       Ratio, D,
+                       mc.set.seed = TRUE,
+                       mc.cores = ncores)
+    res.MLE = matrix(unlist(res.MLE), nrow = length(res.MLE), byrow = TRUE)
+  }
+
   #####
-  res.MLE = matrix(unlist(res.MLE), nrow = length(res.MLE), byrow = TRUE)
- # R.ini = res.MLE[, 1:ncol(D)];
   R.ini = as.matrix(res.MLE[, seq_len(ncol(D))]);
   phi.ini = res.MLE[, (ncol(D)+1)];
   theta.ini = res.MLE[, (ncol(D)+2)]
